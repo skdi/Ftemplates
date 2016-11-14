@@ -23,6 +23,8 @@ private:
 public:
     pila():n_pila(0){}
     void operator +(nodo<T> *elemento);
+    void push(nodo<T> *elemento);
+    nodo<T>* pop();
     nodo<T>* operator -();
     ~pila(){delete n_pila;}
 
@@ -35,7 +37,9 @@ private:
     nodo<T> *n_cola;
 public:
     cola():n_cola(0){}
+    void encolar(nodo<T> *elemento);
     void operator +(nodo<T> *elemento);
+    nodo<T>* desencolar();
     nodo<T>* operator -();
     ~cola(){delete[] n_cola;}
 };
@@ -63,6 +67,7 @@ public:
     myvector():size(0),maxsize(8),array(0){}
     myvector(int tamano):size(0),maxsize(tamano),array(0){}
     void push_back(nodo<T> elemento);
+    void operator+ (nodo<T> elemento);
     int get_size(){return size;}
     void nuevo();
     ~myvector(){delete array;}
@@ -72,3 +77,4 @@ public:
 
 
 #endif // PILA_H
+
