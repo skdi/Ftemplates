@@ -11,6 +11,29 @@ void pila<T>::operator +(nodo<T> *elemento){
 }
 
 template<typename T>
+void pila<T>::push(nodo<T> *elemento){
+    nodo<T>* temp=n_pila;
+    while(temp->next!=0)
+        temp=temp->next;
+    temp->next=elemento;
+    elemento->next=0;
+}
+template<typename T>
+nodo<T> *pila<T>::pop(){
+
+    if(n_pila!=0){
+    nodo<T>* temp=n_pila->next;
+    nodo<T>* prev=n_pila;
+    while(temp->next!=0){
+        prev=temp;
+        temp=temp->next;
+    }
+    prev->next=0;
+    return temp;}
+    else cout<<"pila vacia"<<endl;
+}
+
+template<typename T>
 nodo<T>* pila<T>::operator -(){
     if(n_pila!=0){
     nodo<T>* temp=n_pila->next;
@@ -22,6 +45,16 @@ nodo<T>* pila<T>::operator -(){
     prev->next=0;
     return temp;}
     else cout<<"pila vacia"<<endl;
+}
+
+template<typename T>
+void cola<T>::encolar(nodo<T> *elemento){
+
+    nodo<T>* temp=n_cola;
+    while(temp->next!=0)
+        temp=temp->next;
+    temp->next=elemento;
+    elemento->next=0;
 }
 
 template<typename T>
@@ -43,6 +76,16 @@ nodo<T>* cola<T>::operator -(){
     else
         cout<<"fin de la cola"<<endl;
 
+}
+
+template<typename T>
+nodo<T>* cola<T>::desencolar(){
+    if(n_cola!=0){
+        nodo<T>* temp=n_cola->next;
+        return temp;
+    }
+    else
+        cout<<"fin de la cola"<<endl;
 }
 
 
@@ -84,6 +127,14 @@ void myvector<T>::nuevo(){
 
 template<typename T>
 void myvector<T>::push_back(nodo<T> elemento){
+    if(size+1>maxsize)
+        nuevo();
+    array[size]=elemento;
+    size++;
+}
+
+template<typename T>
+void myvector<T>::operator+ (nodo<T> elemento){
     if(size+1>maxsize)
         nuevo();
     array[size]=elemento;
