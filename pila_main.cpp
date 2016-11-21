@@ -1,9 +1,23 @@
+#include "pila.h"
+#include <iostream>
+using namespace std;
+
 int main()
 {
-    pila <nodo<int> > a, b;
-    a.operator +(1);
-    a.operator +(2);
-    b.operator +(3);
-    b.operator +(4);
-    pila <nodo<int> > c = a + b;
+    typedef nodo<int>* entero;
+
+    pila<entero> a,b;
+    entero q,w;
+    int qw=5;
+    int wq=3;
+    q->elem=&qw;
+    w->elem=&wq;
+    a.push(q);
+
+
+
+
+
+
+
 }
